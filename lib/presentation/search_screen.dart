@@ -7,6 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tif_assignment/blocs/bloc/event_bloc.dart';
 
+import 'event_details.dart';
+
 class Search extends StatefulWidget {
   const Search({super.key});
 
@@ -58,7 +60,7 @@ class _SearchState extends State<Search> {
                     Text(
                       'Search',
                       style: TextStyle(
-                        color: Color(0xFF110C26),
+                        color: const Color(0xFF110C26),
                         fontSize: 24.sp,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
@@ -87,20 +89,20 @@ class _SearchState extends State<Search> {
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w400,
               ),
-              cursorColor: Color(0xff7974E7),
+              cursorColor: const Color(0xff7974E7),
               decoration: InputDecoration(
                 prefixIcon: Container(
                   height: 25.h,
                   width: 25.w,
-                  padding: EdgeInsets.symmetric(vertical: 5),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   child: Image.asset(
                     'assets/searchScreen.png',
-                    color: Color(0xff5669FF),
+                    color: const Color(0xff5669FF),
                   ),
                 ),
                 hintText: 'Type Event Name',
                 hintStyle: TextStyle(
-                  color: Color(0xff747688),
+                  color: const Color(0xff747688),
                   fontSize: 20.sp,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
@@ -125,82 +127,95 @@ class _SearchState extends State<Search> {
                           shrinkWrap: true,
                           padding: EdgeInsets.zero,
                           itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 327,
-                                height: 106,
-                                decoration: ShapeDecoration(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => EventDetail(
+                                      eventData:
+                                          state.events.content.data[index],
+                                    ),
                                   ),
-                                  shadows: const [
-                                    BoxShadow(
-                                      color: Color(0x0F575C8A),
-                                      blurRadius: 35,
-                                      offset: Offset(0, 10),
-                                      spreadRadius: 0,
-                                    )
-                                  ],
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 79.w,
-                                      height: 92.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                          image: NetworkImage(state
-                                              .events
-                                              .content
-                                              .data[index]
-                                              .organiserIcon),
-                                          fit: BoxFit.fill,
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 327,
+                                  height: 106,
+                                  decoration: ShapeDecoration(
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    shadows: const [
+                                      BoxShadow(
+                                        color: Color(0x0F575C8A),
+                                        blurRadius: 35,
+                                        offset: Offset(0, 10),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 79.w,
+                                        height: 92.h,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                            image: NetworkImage(state
+                                                .events
+                                                .content
+                                                .data[index]
+                                                .organiserIcon),
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: 25.w,
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          formatDate(state.events.content
-                                              .data[index].dateTime),
-                                          style: TextStyle(
-                                            color: const Color(0xFF5668FF),
-                                            fontSize: 13.sp,
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 193.w,
-                                          child: Text(
-                                            state.events.content.data[index]
-                                                .title,
-                                            textAlign: TextAlign.start,
+                                      SizedBox(
+                                        width: 25.w,
+                                      ),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            formatDate(state.events.content
+                                                .data[index].dateTime),
                                             style: TextStyle(
-                                              color: Color(0xFF110C26),
-                                              fontSize: 15.sp,
+                                              color: const Color(0xFF5668FF),
+                                              fontSize: 13.sp,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(
-                                          height: 10.h,
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                          SizedBox(
+                                            width: 193.w,
+                                            child: Text(
+                                              state.events.content.data[index]
+                                                  .title,
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                color: const Color(0xFF110C26),
+                                                fontSize: 15.sp,
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10.h,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
@@ -214,89 +229,101 @@ class _SearchState extends State<Search> {
                           shrinkWrap: true,
                           padding: EdgeInsets.zero,
                           itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 327.w,
-                                height: 106.h,
-                                decoration: ShapeDecoration(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => EventDetail(
+                                      eventData:
+                                          state.events.content.data[index],
+                                    ),
                                   ),
-                                  shadows: const [
-                                    BoxShadow(
-                                      color: Color(0x0F575C8A),
-                                      blurRadius: 35,
-                                      offset: Offset(0, 10),
-                                      spreadRadius: 0,
-                                    )
-                                  ],
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 79.w,
-                                      height: 92.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                          image: NetworkImage(state
-                                              .events
-                                              .content
-                                              .data[index]
-                                              .organiserIcon),
-                                          fit: BoxFit.fill,
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 327.w,
+                                  height: 106.h,
+                                  decoration: ShapeDecoration(
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    shadows: const [
+                                      BoxShadow(
+                                        color: Color(0x0F575C8A),
+                                        blurRadius: 35,
+                                        offset: Offset(0, 10),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 79.w,
+                                        height: 92.h,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                            image: NetworkImage(state
+                                                .events
+                                                .content
+                                                .data[index]
+                                                .organiserIcon),
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: 25.w,
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          formatDate(state.events.content
-                                              .data[index].dateTime),
-                                          style: TextStyle(
-                                            color: const Color(0xFF5668FF),
-                                            fontSize: 13.sp,
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 193.w,
-                                          child: Text(
-                                            state.events.content.data[index]
-                                                .title,
-                                            textAlign: TextAlign.start,
+                                      SizedBox(
+                                        width: 25.w,
+                                      ),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            formatDate(state.events.content
+                                                .data[index].dateTime),
                                             style: TextStyle(
-                                              color: Color(0xFF110C26),
-                                              fontSize: 15.sp,
+                                              color: const Color(0xFF5668FF),
+                                              fontSize: 13.sp,
                                               fontFamily: 'Inter',
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.w400,
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(
-                                          height: 10.w,
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                          SizedBox(
+                                            width: 193.w,
+                                            child: Text(
+                                              state.events.content.data[index]
+                                                  .title,
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                color: const Color(0xFF110C26),
+                                                fontSize: 15.sp,
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10.w,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
                           },
                         );
                       } else if (state is SearchFailed) {
-                        // context.read<EventBloc>().add(FetchDetailsStart());
                         return Center(
                           child: Text(
                             state.message,

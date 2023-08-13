@@ -105,7 +105,7 @@ class _EventState extends State<Event> {
                       if (state is EventFetched) {
                         return ListView.builder(
                           itemCount: state.events.content.data.length,
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           shrinkWrap: true,
                           padding: EdgeInsets.zero,
                           itemBuilder: (context, index) {
@@ -171,7 +171,7 @@ class _EventState extends State<Event> {
                                             formatDate(state.events.content
                                                 .data[index].dateTime),
                                             style: TextStyle(
-                                              color: Color(0xFF5668FF),
+                                              color: const Color(0xFF5668FF),
                                               fontSize: 13.sp,
                                               fontFamily: 'Inter',
                                               fontWeight: FontWeight.w400,
@@ -184,7 +184,7 @@ class _EventState extends State<Event> {
                                                   .title,
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
-                                                color: Color(0xFF110C26),
+                                                color: const Color(0xFF110C26),
                                                 fontSize: 15.sp,
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -200,7 +200,7 @@ class _EventState extends State<Event> {
                                             children: [
                                               Icon(
                                                 Icons.location_on,
-                                                color: Color(0xFF747688),
+                                                color: const Color(0xFF747688),
                                                 size: 14.h,
                                               ),
                                               SizedBox(
@@ -228,7 +228,7 @@ class _EventState extends State<Event> {
                           },
                         );
                       } else {
-                        return Center(
+                        return const Center(
                           child: Text(
                             "No Internet :_)",
                             style: TextStyle(

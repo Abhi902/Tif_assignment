@@ -22,7 +22,7 @@ class _EventDetailState extends State<EventDetail> {
     String dayOfWeek = DateFormat.EEEE().format(dateTime);
     String startTime = DateFormat.jm().format(dateTime);
 
-    DateTime endTime = dateTime.add(Duration(
+    DateTime endTime = dateTime.add(const Duration(
         hours: 5)); // For example, end time is 5 hours after start time
     String endTimeString = DateFormat.jm().format(endTime);
 
@@ -70,7 +70,7 @@ class _EventDetailState extends State<EventDetail> {
                   child: Text(
                     widget.eventData.title,
                     style: TextStyle(
-                      color: Color(0xFF110C26),
+                      color: const Color(0xFF110C26),
                       fontSize: 35.sp,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
@@ -106,7 +106,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             widget.eventData.organiserName,
                             style: TextStyle(
-                              color: Color(0xFF0D0C26),
+                              color: const Color(0xFF0D0C26),
                               fontSize: 15.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -116,7 +116,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             'Organizer',
                             style: TextStyle(
-                              color: Color(0xFF6F6D8F),
+                              color: const Color(0xFF6F6D8F),
                               fontSize: 12.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -135,12 +135,12 @@ class _EventDetailState extends State<EventDetail> {
                         width: 48.w,
                         height: 48.h,
                         decoration: ShapeDecoration(
-                          color: Color(0xFF5668FF).withOpacity(0.10),
+                          color: const Color(0xFF5668FF).withOpacity(0.10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.calendar_month,
                           color: Color(0xff5669FF),
                         ),
@@ -155,7 +155,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             formatDate(widget.eventData.dateTime),
                             style: TextStyle(
-                              color: Color(0xFF110C26),
+                              color: const Color(0xFF110C26),
                               fontSize: 16.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
@@ -165,7 +165,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             formatDateTime(widget.eventData.dateTime),
                             style: TextStyle(
-                              color: Color(0xff747688),
+                              color: const Color(0xff747688),
                               fontSize: 15.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -185,12 +185,12 @@ class _EventDetailState extends State<EventDetail> {
                         width: 48.w,
                         height: 48.h,
                         decoration: ShapeDecoration(
-                          color: Color(0xFF5668FF).withOpacity(0.10),
+                          color: const Color(0xFF5668FF).withOpacity(0.10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.location_on,
                           color: Color(0xff5669FF),
                         ),
@@ -205,7 +205,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             widget.eventData.venueName,
                             style: TextStyle(
-                              color: Color(0xFF0D0C26),
+                              color: const Color(0xFF0D0C26),
                               fontSize: 15.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -215,7 +215,7 @@ class _EventDetailState extends State<EventDetail> {
                           Text(
                             '${widget.eventData.venueName} • ${widget.eventData.venueCity}, ${getAbbreviation(widget.eventData.venueCountry)}',
                             style: TextStyle(
-                              color: Color(0xFF6F6D8F),
+                              color: const Color(0xFF6F6D8F),
                               fontSize: 12.sp,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
@@ -234,7 +234,7 @@ class _EventDetailState extends State<EventDetail> {
                   child: Text(
                     'About Event',
                     style: TextStyle(
-                      color: Color(0xFF110C26),
+                      color: const Color(0xFF110C26),
                       fontSize: 18.sp,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w500,
@@ -247,7 +247,7 @@ class _EventDetailState extends State<EventDetail> {
                   child: Text(
                     widget.eventData.description,
                     style: TextStyle(
-                      color: Color(0xFF110C26),
+                      color: const Color(0xFF110C26),
                       fontSize: 16.sp,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
