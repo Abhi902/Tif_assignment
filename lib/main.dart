@@ -8,7 +8,7 @@ import 'package:tif_assignment/presentation/event_view.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) {
         return const MyApp();
       },
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => EventBloc(),
       child: ScreenUtilInit(
-        designSize: const Size(360, 784),
+        designSize: const Size(340, 784),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (BuildContext context, Widget? child) {

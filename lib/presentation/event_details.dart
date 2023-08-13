@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../model/event_model.dart';
 
+// ignore: must_be_immutable
 class EventDetail extends StatefulWidget {
   EventDetail({super.key, required this.eventData});
 

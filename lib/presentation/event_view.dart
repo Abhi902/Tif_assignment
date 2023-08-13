@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -196,24 +195,32 @@ class _EventState extends State<Event> {
                                           ),
                                           Row(
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.center,
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Icon(
-                                                Icons.location_on,
-                                                color: const Color(0xFF747688),
-                                                size: 14.h,
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 1.h),
+                                                child: Icon(
+                                                  Icons.location_on,
+                                                  color:
+                                                      const Color(0xFF747688),
+                                                  size: 14.h,
+                                                ),
                                               ),
                                               SizedBox(
                                                 width: 5.w,
                                               ),
-                                              Text(
-                                                '${state.events.content.data[index].venueName} • ${state.events.content.data[index].venueCity}, ${getAbbreviation(state.events.content.data[index].venueCountry)}',
-                                                style: TextStyle(
-                                                  color:
-                                                      const Color(0xFF747688),
-                                                  fontSize: 13.sp,
-                                                  fontFamily: 'Inter',
-                                                  fontWeight: FontWeight.w400,
+                                              SizedBox(
+                                                width: 200.w,
+                                                child: Text(
+                                                  '${state.events.content.data[index].venueName} • ${state.events.content.data[index].venueCity}, ${getAbbreviation(state.events.content.data[index].venueCountry)}',
+                                                  style: TextStyle(
+                                                    color:
+                                                        const Color(0xFF747688),
+                                                    fontSize: 13.sp,
+                                                    fontFamily: 'Inter',
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
                                                 ),
                                               )
                                             ],
